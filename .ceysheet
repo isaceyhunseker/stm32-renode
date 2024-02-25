@@ -5,15 +5,34 @@ apt --fix-broken install
 sudo apt install gcc-arm-none-eabi
 chmod 777 renode_1.14.0_amd64.deb 
 sudo dpkg -i renode_1.14.0_amd64.deb 
+sudo apt install gdb-multiarch
+
+stm32f4_discovery.resc
+machine LoadPlatformDescription @renode_board/add-peripherals.repl
+
 
 CmakeList.txt 
 set(CMAKE_C_COMPILER /usr/bin/arm-none-eabi-gcc)
 set(LINKER_SCRIPT "linker.ld")
 
 launch.json
-"miDebuggerPath": "/usr/bin/gdb",
+"program": "${workspaceRoot}/build_cmake/lab1",
 
 link.txt
 /usr/bin/arm-none-eabi-gcc -O0 -DDEBUG -ffreestanding -ggdb   CMakeFiles/lab1.dir/src/main.c.o CMakeFiles/lab1.dir/src/startup.c.o  -o lab1 -mthumb -mcpu=cortex-m4 -nostartfiles -Tlinker.ld -Wl,-Map=lab.map 
 
-
+```
+cmake -D CMAKE_BUILD_TYPE=Debug -B ./build_cmake -S ./
+```
+```
+make lab1
+```
+```
+make clean
+```
+```
+renode --console
+``` 
+```
+i @renode_board/stm32f4_discovery.resc
+```

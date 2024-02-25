@@ -5,4 +5,15 @@ apt --fix-broken install
 sudo apt install gcc-arm-none-eabi
 chmod 777 renode_1.14.0_amd64.deb 
 sudo dpkg -i renode_1.14.0_amd64.deb 
-ssh-keygen -t ed25519 -C "isaceyhunseker@gmail.com"
+
+CmakeList.txt 
+set(CMAKE_C_COMPILER /usr/bin/arm-none-eabi-gcc)
+set(LINKER_SCRIPT "linker.ld")
+
+launch.json
+"miDebuggerPath": "/usr/bin/gdb",
+
+link.txt
+/usr/bin/arm-none-eabi-gcc -O0 -DDEBUG -ffreestanding -ggdb   CMakeFiles/lab1.dir/src/main.c.o CMakeFiles/lab1.dir/src/startup.c.o  -o lab1 -mthumb -mcpu=cortex-m4 -nostartfiles -Tlinker.ld -Wl,-Map=lab.map 
+
+

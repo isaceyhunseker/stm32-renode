@@ -1,0 +1,7 @@
+#this file is created as a dummy work space for development process before documentation.
+apt-get install policykit-1 libgtk2.0-0 screen uml-utilities gtk-sharp2 libc6-dev gcc python3 python3-pip
+sudo apt install ca-certificates gnupg
+apt --fix-broken install
+sudo apt install gcc-arm-none-eabi
+chmod 777 renode_1.14.0_amd64.deb 
+sudo dpkg -i renode_1.14.0_amd64.deb 

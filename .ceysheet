@@ -5,3 +5,4 @@ apt --fix-broken install
 sudo apt install gcc-arm-none-eabi
 chmod 777 renode_1.14.0_amd64.deb 
 sudo dpkg -i renode_1.14.0_amd64.deb 
+ssh-keygen -t ed25519 -C "isaceyhunseker@gmail.com"
